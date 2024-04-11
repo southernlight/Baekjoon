@@ -5,17 +5,18 @@ using namespace std;
 
 int main()
 {
-    int A, B;
+    int A;
     char val;
     ifstream fin;
-    fin.open("test2.txt");
+    fin.open("test.txt");
     while (!fin.eof())
     {
-        // fin >> A;
-        // fin >> B;
-        // cout << A + B << endl;
-        fin >> val;
-        cout << val << endl;
+        fin >> A;
+        cout << A << endl;
+        cout << "called" << endl;
+        // fin >> val;
+        // cout << val << endl;
+        // cout << "called" << endl;
     }
     return 0;
 }
