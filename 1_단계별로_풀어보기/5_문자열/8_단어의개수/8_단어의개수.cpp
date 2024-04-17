@@ -2,10 +2,10 @@
 using namespace std;
 int main()
 {
-    ios::sync_with_stdio(false);
+    // ios::sync_with_stdio(false);
     cin.tie(NULL);
-    char str[1000000];
-    cin.getline(str, 1000000);
+    char str[1000001];
+    cin.getline(str, 10000001);
     int count = 0;
     int i = 0;
     while (1)

@@ -3,7 +3,7 @@
 using namespace std;
 void print_alphabets();
 int alphabets[26];
-char str[100];
+char str[200];
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
     {
         alphabets[i] = -1;
     }
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 200; i++)
     {
         if (str[i] >= 'a' && str[i] <= 'z')
         {
