@@ -1,11 +1,11 @@
+#include <cstring>
 #include <iostream>
 using namespace std;
 int main()
 {
-    // ios::sync_with_stdio(false);
-    cin.tie(NULL);
     char str[1000001];
-    cin.getline(str, 10000001);
+    cin.getline(str, sizeof(str));
+
     int count = 0;
     int i = 0;
     while (1)
@@ -19,7 +19,10 @@ int main()
         }
         i++;
     }
-    cout << count + 1;
+    if (strlen(str) == 1 && str[0] == ' ')
+        cout << 0;
+    else
+        cout << count + 1;
 
     return 0;
 }

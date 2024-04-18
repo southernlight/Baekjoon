@@ -5,11 +5,12 @@ int main()
 {
     cin.tie(NULL);
     ios::sync_with_stdio(false);
-    char str[200];
 
-    while (1)
+    char str[101];
+
+    while (!cin.eof())
     {
-        cin.getline(str, 200);
+        cin.getline(str, sizeof(str));
         cout << str << "\n";
     }
 
