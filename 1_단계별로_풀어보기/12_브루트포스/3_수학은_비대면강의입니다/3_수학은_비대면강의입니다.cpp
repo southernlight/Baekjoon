@@ -14,6 +14,19 @@ int main()
             if (d * x + e * y == f)
                 cout << x << " " << y;
         }
+
+        else if (a == 0 && e == 0)
+        {
+            cout << f / d << " " << c / b;
+            break;
+        }
+
+        else if (b == 0 && d == 0)
+        {
+            cout << c / b << " " << f / e;
+            break;
+        }
+
         else
         {
             if (a == 0)
