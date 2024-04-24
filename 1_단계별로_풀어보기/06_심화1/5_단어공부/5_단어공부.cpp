@@ -1,44 +1,55 @@
+#include <cstring>
 #include <iostream>
-#define MAX_NUM 1000001
-#define ARRAY_NUM 130
-#define DIFF 32
+char vocab[1000001];
+int alphabetsCounts[100];
 
 using namespace std;
+bool same();
 int main()
 {
+    const char diff = 'a' - 'A';
 
-    int alphabets_count[ARRAY_NUM] = {
-        0,
-    };
-    char word[MAX_NUM];
-    cin >> word;
-    for (int i = 0; i < MAX_NUM && word[i] != '\0'; i++)
+    cin >> vocab;
+    for (int i = 0; i < strlen(vocab); i++)
     {
-        if (word[i] >= 'A' && word[i] <= 'Z') //+32 해줘야한다.
-        {
-            alphabets_count[word[i]]++;
-        }
-
-        else if (word[i] >= 'a' && word[i] <= 'z')
-        {
-            alphabets_count[word[i] - DIFF]++;
-        }
+        if (vocab[i] >= 'A' && vocab[i] <= 'Z')
+            alphabetsCounts[(int)vocab[i]]++;
+        else if (vocab[i] >= 'a' && vocab[i] <= 'z')
+            alphabetsCounts[(int)(vocab[i] - diff)]++;
     }
 
-    char max = 0;
-    bool same = true;
-    for (char c = 'A'; c <= 'Z'; c++)
+    if (same())
+        cout << "?";
+    else
     {
-        if (alphabets_count[c] > 0 && alphabets_count[c] >= alphabets_count[max])
+        char max = 'A';
+        for (int i = (int)'A'; i <= (int)'Z'; i++)
         {
-            if (alphabets_count[c] == alphabets_count[max])
+            if (alphabetsCounts != 0)
             {
-                max = '?';
-                break;
+                if (alphabetsCounts[i] > alphabetsCounts[max])
+                    max = (char)i;
             }
-            max = c;
+        }
+        cout << max;
+    }
+
+    return 0;
+}
+
+bool same()
+{
+    for (int i = (int)'A'; i <= (int)'Z'; i++)
+    {
+        if (alphabetsCounts[i] != 0)
+        {
+            for (int j = i + 1; j <= (int)'Z'; j++)
+            {
+                if (alphabetsCounts[i] == alphabetsCounts[j])
+                    return true;
+            }
         }
     }
-    cout << max;
-    return 0;
+
+    return false;
 }
