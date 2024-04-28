@@ -2,14 +2,14 @@
 #include <iostream>
 
 using namespace std;
-char word[100];
+char word[101];
 int main()
 {
 
     cin >> word;
     int count = 0;
 
-    for (int i = 0; i < strlen(word); i++)
+    for (int i = 0; i < strlen(word); ++i)
     {
         if (i != strlen(word) - 1)
         {
@@ -32,6 +32,11 @@ int main()
                     if (word[i + 2] == '=')
                     {
                         i += 2;
+                        count++;
+                    }
+
+                    else
+                    {
                         count++;
                     }
                 }
@@ -76,6 +81,7 @@ int main()
                 count++;
             }
         }
+
         else
         {
             count++;
