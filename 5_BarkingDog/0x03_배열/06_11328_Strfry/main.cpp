@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 //commit
+//commit2
 using namespace std;
 int N;
 bool occur1[26];
