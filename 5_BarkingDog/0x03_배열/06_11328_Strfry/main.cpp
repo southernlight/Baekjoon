@@ -1,10 +1,7 @@
 #include <bits/stdc++.h>
-//commit
-//commit2
+
 using namespace std;
 int N;
-bool occur1[26];
-bool occur2[26];
 bool possible;
 
 int main()
@@ -16,7 +13,12 @@ int main()
     char second[1001];
     for (int i = 0; i < N; i++)
     {
-
+        int occur1[26] = {
+            0,
+        };
+        int occur2[26] = {
+            0,
+        };
         possible = true;
         cin >> first >> second;
         int first_len = strlen(first);
@@ -26,9 +28,9 @@ int main()
         else
         {
             for (int j = 0; j < first_len; j++)
-                occur1[first[j] - 'a'] = true;
+                occur1[first[j] - 'a']++;
             for (int j = 0; j < second_len; j++)
-                occur2[second[j] - 'a'] = true;
+                occur2[second[j] - 'a']++;
 
             for (int i = 0; i < 26; i++)
             {
