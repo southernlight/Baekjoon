@@ -1,44 +1,39 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
+int N;
 
 int main()
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int N;
     cin >> N;
     for (int i = 0; i < N; i++)
     {
+        string S;
+        cin >> S;
         list<char> L = {};
-        list<char>::iterator t = L.end();
-        string input_keys;
-        cin >> input_keys;
-        for (auto c : input_keys)
+        auto cur = L.end();
+        for (auto c : S)
         {
             if (c == '<' || c == '>' || c == '-')
             {
-                if (c == '<' && t != L.begin())
-                    t--;
-                else if (c == '>' && t != L.end())
-                    t++;
-                else if (c == '-' && t != L.begin())
+                if (c == '<' && cur != L.begin())
+                    cur--;
+                else if (c == '>' && cur != L.end())
+                    cur++;
+                else if (c == '-' && cur != L.begin())
                 {
-                    t--;
-                    t = L.erase(t);
+                    cur--;
+                    cur = L.erase(cur);
                 }
             }
-
             else
-            {
-                L.insert(t, c);
-            }
+                L.insert(cur, c);
         }
-
         for (auto c : L)
             cout << c;
-        cout << "\n";
+        cout << '\n';
     }
-    return 0;
 }

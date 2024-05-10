@@ -1,39 +1,38 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
+list<char> L;
+string S;
 int main()
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    string S;
     cin >> S;
-    list<char> L;
-    list<char>::iterator t;
-
     for (auto c : S)
         L.push_back(c);
-    t = L.end();
+    auto cur = L.end();
 
     int M;
-    string command;
     cin >> M;
-    cin.ignore();
     for (int i = 0; i < M; i++)
     {
-        getline(cin, command);
-        if (command[0] == 'L' && t != L.begin())
-            t--;
-        else if (command[0] == 'D' && t != L.end())
-            t++;
-        else if (command[0] == 'B' && t != L.begin())
+        char command;
+        cin >> command;
+        if (command == 'L' && cur != L.begin())
+            cur--;
+        else if (command == 'D' && cur != L.end())
+            cur++;
+        else if (command == 'B' && cur != L.begin())
         {
-            t--;
-            t = L.erase(t);
+            cur--;
+            cur = L.erase(cur);
         }
-        else if (command[0] == 'P')
+        else if (command == 'P')
         {
-            L.insert(t, command[2]);
+            char c;
+            cin >> c;
+            L.insert(cur, c);
         }
     }
 
